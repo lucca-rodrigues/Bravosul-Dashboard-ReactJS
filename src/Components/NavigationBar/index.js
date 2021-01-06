@@ -3,12 +3,11 @@ import { Row, Col } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { Content, Exit } from './styles';
 
-import Logo from '../../Assets/logo-drawer.svg';
-import Home from '../../Assets/home.svg';
-import New from '../../Assets/new.svg';
-import All from '../../Assets/all.svg';
-import Account from '../../Assets/account.svg';
+import { FaPlusCircle, FaHouseDamage, FaUser } from 'react-icons/fa';
+
 import ExitImage from '../../Assets/exit.svg';
+import Header from '../../Components/Header';
+
 import { useAuth } from '../../Context/AuthContext';
 
 const NavigationBar = ({ children }) => {
@@ -16,32 +15,26 @@ const NavigationBar = ({ children }) => {
 
   return (
     <Row>
-      <Col>
+      <Col className="main-menu">
         <Content>
           <Link to="/">
-            <img src={Logo} alt="Logo" width="50" />
+            <img src="https://bravosul.com.br/logo-bravosul.svg" alt="Logo Bravosul" width="60"/>
           </Link>
           <span>
             <Link to="/dashboard">
-              <img src={Home} alt="Home" width="50" />
-                  Home
-                </Link>
+              <FaHouseDamage size={25}/>
+              Home
+            </Link>
           </span>
           <span>
             <Link to="/products/new">
-              <img src={New} alt="New" width="50" />
-                  Add New
-                </Link>
+              <FaPlusCircle size={25}/>
+              Add New
+            </Link>
           </span>
-          {/* <span>
-              <Link to="/products">
-                <img src={All} alt="All" width="50"/>
-                 All products
-              </Link>
-          </span> */}
           <span onClick={signOut}>
-            <img src={Account} alt="Account" />
-              Loggout
+            <FaUser size={25} color="#fff"/>
+            Loggout
           </span>
         </Content>
       </Col>

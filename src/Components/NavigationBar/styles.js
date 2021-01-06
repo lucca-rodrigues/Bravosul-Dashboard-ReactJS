@@ -1,26 +1,40 @@
 import styled from "styled-components";
 
 export const Content = styled.div`
-    background: #00A3ED;
+    background: #00B35C;
     height: 100%;
     min-height: 100vh;
-    max-width: 85px;
-    padding: 30px 0;
+    max-width: 100px;
+    padding: 30px 5px;
+    justify-content: space-between;
 
-    a{
-        display: grid;
-        align-items: center;
-        justify-content: center;
-        font-size: 13px;
+
+    span{
+        display:flex;
+        font-size: 12px;
         font-weight: 500;
         text-decoration: none;
         color: #fff;
         margin: 25px 0;
         text-align: center;
+
+        &:hover{
+          cursor: pointer;
+        }
+    }
+
+    a{
+      color:#fff;
+      justify-content: space-between;
+      text-decoration: none;
     }
 
     a:first-child{
         margin-top:0px;
+    }
+
+    svg{
+      margin-right:10px;
     }
 
 
@@ -30,6 +44,7 @@ export const Content = styled.div`
         min-width:35px;
         height: auto;
         margin-bottom: 5px;
+        filter: brightness(0) invert(1);
     }
 `
 
