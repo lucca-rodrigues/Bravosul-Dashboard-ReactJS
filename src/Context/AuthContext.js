@@ -9,7 +9,7 @@ const AuthProvider = ({ children }) => {
       const identf = localStorage.getItem('@BravosulDashboard:identifier');
       const id = localStorage.getItem('@BravosulDashboard:id');
 
-      if (token && identf && id) {
+      if (token) {
         api.defaults.headers.authorization = `Bearer ${token}`;
 
         return { token, identf: JSON.parse(identf), id: id };
@@ -23,7 +23,7 @@ const AuthProvider = ({ children }) => {
       localStorage.removeItem('@BravosulDashboard:identifier');
       localStorage.removeItem('@BravosulDashboard:id');
 
-      setData({});
+      setData({ id: '', token: '', identf: ''});
     }, []);
 
     const signIn = useCallback(async ({ email, password }) => {
@@ -50,7 +50,7 @@ const AuthProvider = ({ children }) => {
 
     return (
       <AuthContext.Provider
-        value={{ identifier: data.identifier, id: data.id, username: data.username, signIn, signOut //, updateUser
+        value={{ token: data.jwt, identifier: data.identifier, id: data.id, username: data.username, signIn, signOut //, updateUser
         }}>
         {children}
       </AuthContext.Provider>

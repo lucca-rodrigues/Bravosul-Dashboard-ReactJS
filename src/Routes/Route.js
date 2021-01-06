@@ -8,12 +8,12 @@ const Route = ({
   component: Component,
   ...rest
 }) => {
-  const { user } = useAuth();
+  const { token } = useAuth();
   return (
     <RouteReact
       {...rest}
       render={({ location }) => {
-        return isPrivate === !!user ? (
+        return isPrivate === !!token ? (
             <Component />
         ) : (
             <Redirect
