@@ -6,14 +6,12 @@ import { Container, Row, Col } from 'react-bootstrap';
 import { FaEye, FaPencilAlt, FaTrash } from 'react-icons/fa';
 import { Content } from './styles';
 
-import { useAuth } from '../../Context/AuthContext';
+//import { useAuth } from '../../Context/AuthContext';
 import api from '../../Services/api';
 
 
 const Dashboard = () => {
     const history = useHistory();
-    const {signOut} = useAuth();
-    const [data, setData] = useState([]);
     const [products, setProducts] = useState([]);
 
     useEffect(() => {
@@ -28,14 +26,7 @@ const Dashboard = () => {
       };
       handleProducts();
 
-    },[])
-
-    const handleDetails = (item) => {
-      return history.push(`/products/${item.id}`)
-
-      console.log(item.id);
-    }
-
+    },[]);
 
     const handleEdit = () => {
       return history.push('/edit/1')
