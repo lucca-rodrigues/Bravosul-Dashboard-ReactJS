@@ -50,12 +50,12 @@ const Login = () => {
       toast.error("Erro ao realizar login, verifique se suas credenciais estão corretas!")
     }
 
-  }, [signIn]);
+  }, [history, signIn]);
+
   return (
     <Container>
       <Content>
         <Form onSubmit={handleSubmit}>
-          {/* <img src={Logo} alt="Logo"/> */}
           <Input name="email" placeholder="Email"/>
           <Input name="password" placeholder="Password" type="password"/>
           <Button type="submit">Entrar</Button>
@@ -67,60 +67,3 @@ const Login = () => {
 }
 
 export default Login;
-
-
-// import React, { useState, useCallback } from 'react'
-// import {useHistory} from 'react-router-dom';
-// import {useAuth} from '../../Context/AuthContext';
-
-// import Input from '../../Components/Input';
-// import { Container, Row, Col } from 'react-bootstrap';
-// import { Content } from './styles';
-// import { toast } from 'react-toastify';
-
-// import { Field, Form, Formik } from 'formik';
-
-
-// const Login = () => {
-//   const history = useHistory();
-
-//   const {identifier, signIn} = useAuth();
-//   const [email, setEmail] = useState(identifier);
-//   const [password, setPassword] = useState();
-
-//   const handleSubmit = useCallback(async(data) => {
-//     try {
-//       await signIn({
-//         id: data.id,
-//         identifier: data.identifier,
-//         password: data.password,
-//       })
-//       history.push("/dashboard");
-//       toast.success("Login realizado com sucesso!");
-//     } catch (error) {
-//       toast.error("Ocorreu um erro ao realizar o login, tente novamente mais tarde!")
-//     }
-//   }, [signIn]);
-
-//     return (
-//         <Content>
-//           <Formik>
-//             <form onSubmit={handleSubmit}>
-//               <Container>
-//                 <Row>
-//                   <Col>
-//                     <Input name={email} placeholder="Email"/>
-//                     <Input name="password" placeholder="Password" type="password"/>
-//                     <button type="submit">Submit</button>
-//                   </Col>
-//                 </Row>
-//               </Container>
-//             </form>
-//           </Formik>
-//         </Content>
-//     )
-// }
-
-
-// export default Login;
-
