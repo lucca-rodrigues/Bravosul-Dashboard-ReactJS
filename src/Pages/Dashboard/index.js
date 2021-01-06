@@ -30,8 +30,10 @@ const Dashboard = () => {
 
     },[])
 
-    const handleDetails = () => {
-      return history.push('/products/1')
+    const handleDetails = (item) => {
+      return history.push(`/products/${item.id}`)
+
+      console.log(item.id);
     }
 
 
@@ -60,10 +62,7 @@ const Dashboard = () => {
                     <>
                       {item.enabled === true ? (
                         <li key={item.id}>
-                          {item.name} -  {item.description}
-                          <FaEye onClick={handleDetails}/>
-                          <FaPencilAlt onClick={handleEdit}/>
-                          <FaTrash onClick={handleRemove}/>
+                          {item.name} -  {item.description} <Link to={`/products/${item.id}`}><FaEye /></Link> <FaPencilAlt onClick={handleEdit}/> <FaTrash onClick={handleRemove}/>
                         </li>
                       ) : ''}
                     </>
