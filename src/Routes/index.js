@@ -1,7 +1,7 @@
 import React from 'react';
 import { Switch } from 'react-router-dom';
 import ReactRoutes from './Route';
-import CustomHeaderLeft from '../Components/CustomHeaderLeft';
+import NavigationBar from '../Components/NavigationBar';
 
 import Login from '../Pages/Login';
 import SignIn from '../Pages/SignIn';
@@ -15,12 +15,12 @@ export default function Routes() {
       <Switch>
         <ReactRoutes path="/" exact component={Login} />
         <ReactRoutes path="/signin" component={SignIn} />
-        <CustomHeaderLeft>
+        <NavigationBar>
           <ReactRoutes path="/dashboard" component={Dashboard} isPrivate />
           <ReactRoutes path="/products/new" component={NewProducts} isPrivate />
           <ReactRoutes path="/products/:id" component={DetailProducts} isPrivate />
           <ReactRoutes path="/edit/:id" component={EditProducts} isPrivate />
-        </CustomHeaderLeft>
+        </NavigationBar>
       </Switch>
   );
 }
