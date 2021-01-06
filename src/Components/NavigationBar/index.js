@@ -6,6 +6,7 @@ import { Content, Exit } from './styles';
 import Logo from '../../Assets/logo-drawer.svg';
 import Home from '../../Assets/home.svg';
 import New from '../../Assets/new.svg';
+import All from '../../Assets/all.svg';
 import Account from '../../Assets/account.svg';
 import ExitImage from '../../Assets/exit.svg';
 import { useAuth } from '../../Context/AuthContext';
@@ -32,6 +33,12 @@ const NavigationBar = ({ children }) => {
                   Add New
                 </Link>
           </span>
+          {/* <span>
+              <Link to="/products">
+                <img src={All} alt="All" width="50"/>
+                 All products
+              </Link>
+          </span> */}
           <span onClick={signOut}>
             <img src={Account} alt="Account" />
               Loggout

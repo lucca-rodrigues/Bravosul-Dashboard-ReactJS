@@ -9,12 +9,17 @@ import Dashboard from '../Pages/Dashboard';
 import NewProducts from '../Pages/NewProducts';
 import DetailProducts from '../Pages/DetailProducts';
 import EditProducts from '../Pages/EditProducts';
+import ListProducts from '../Pages/ListProducts';
+import NotFound from '../Pages/NotFound';
 
 export default function Routes() {
   return (
       <Switch>
-        <ReactRoutes path="/" exact component={Login} />
+        <ReactRoutes path="/" exact component={ListProducts} />
         <ReactRoutes path="/signin" component={SignIn} />
+        <ReactRoutes path="/login" component={Login} />
+        <ReactRoutes path="*" component={NotFound} />
+
         <NavigationBar>
           <ReactRoutes path="/dashboard" component={Dashboard} isPrivate />
           <ReactRoutes path="/products/new" component={NewProducts} isPrivate />
