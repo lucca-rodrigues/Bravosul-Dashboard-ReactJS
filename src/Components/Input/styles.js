@@ -22,7 +22,7 @@ export const Container = styled.div`
     props.isFocused &&
     css`
       color: #ff9000;
-      border-color: #1A237E;
+      border-color: #3F3D56;
     `}
   ${(props) =>
     props.isFilled &&
