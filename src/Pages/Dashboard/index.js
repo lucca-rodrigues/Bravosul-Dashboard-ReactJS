@@ -49,12 +49,6 @@ const Dashboard = () => {
         <Content>
           <Container>
             <Row>
-              <button onClick={signOut}>Sair</button>
-            </Row>
-            <Row>
-              <Col>
-                Menu aqui
-              </Col>
               <Col>
               <h1>Meus produtos Ativos:</h1> <br/>
                 <ul>
