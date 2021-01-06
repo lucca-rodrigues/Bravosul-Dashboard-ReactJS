@@ -11,7 +11,7 @@ import api from '../../Services/api';
 const Dashboard = () => {
 
 
-    // const {signOut} = useAuth();
+     const {signOut} = useAuth();
     // const [data, setData] = useState([]);
 
 
@@ -34,9 +34,9 @@ const Dashboard = () => {
     return (
         <Content>
           <Container>
-            {/* <Row>
-              <button onClick={signOut()}>Sair</button>
-            </Row> */}
+            <Row>
+              <button onClick={signOut}>Sair</button>
+            </Row>
             <Row>
               <Col>
                 Menu aqui

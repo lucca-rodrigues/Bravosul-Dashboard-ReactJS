@@ -6,16 +6,16 @@ const AuthContext = createContext();
 const AuthProvider = ({ children }) => {
     const [data, setData] = useState(() => {
       const token = localStorage.getItem('@BravosulDashboard:token');
-      const identf = localStorage.getItem('@BravosulDashboard:identifier');
+      const email = localStorage.getItem('@BravosulDashboard:identifier');
       const id = localStorage.getItem('@BravosulDashboard:id');
 
-      if (token) {
+      if (token & email) {
         api.defaults.headers.authorization = `Bearer ${token}`;
 
-        return { token, identf: JSON.parse(identf), id: id };
+        return { token, email: JSON.parse(email), id: id };
       }
 
-      return ({id, token, identf});
+      return ({id, token, email});
     });
 
     const signOut = useCallback(() => {
@@ -23,34 +23,35 @@ const AuthProvider = ({ children }) => {
       localStorage.removeItem('@BravosulDashboard:identifier');
       localStorage.removeItem('@BravosulDashboard:id');
 
-      setData({ id: '', token: '', identf: ''});
+      setData({});
     }, []);
 
     const signIn = useCallback(async ({ email, password }) => {
       const response = await api.post('/auth/local', {
         identifier: email,
-        password,
+        password : password,
       });
 
       const token = response.data && response.data.jwt;
-      const {id, username} = response.data.user
-      const identf = response.data && response.data.email;
+      const id = response.data.user.id;
+      const identifier = response.data && response.data.user.email;
+      const username = response.data && response.data.user.username;
 
 
       console.log(response.data);
 
       localStorage.setItem('@BravosulDashboard:token', token);
-      localStorage.setItem('@BravosulDashboard:user', JSON.stringify({id, username, identf}));
+      localStorage.setItem('@BravosulDashboard:user', JSON.stringify({id, username, email}));
 
       api.defaults.headers.authorization = `Bearer ${token}`;
 
-      setData({ id, token, identf});
+      setData({ id, token, identifier});
     }, []);
 
 
     return (
       <AuthContext.Provider
-        value={{ token: data.jwt, identifier: data.identifier, id: data.id, username: data.username, signIn, signOut //, updateUser
+        value={{ token: data.token, email: data.email, id: data.id, username: data.username, signIn, signOut //, updateUser
         }}>
         {children}
       </AuthContext.Provider>

@@ -1,16 +1,16 @@
 import React from 'react';
-import { Route as RouteReact, Redirect } from 'react-router-dom';
+import { Route, Redirect } from 'react-router-dom';
 
 import { useAuth } from '../Context/AuthContext';
 
-const Route = ({
+const ReactRoutes = ({
   isPrivate = false,
   component: Component,
   ...rest
 }) => {
   const { token } = useAuth();
   return (
-    <RouteReact
+    <Route
       {...rest}
       render={({ location }) => {
         return isPrivate === !!token ? (
@@ -28,4 +28,4 @@ const Route = ({
   );
 }
 
-export default Route;
+export default ReactRoutes;
