@@ -60,7 +60,7 @@ const Login = () => {
           <Input name="password" placeholder="Password" type="password"/>
           <Button type="submit">Entrar</Button>
         </Form>
-        <Link to="/register">Não tenho uma conta?</Link>
+        <Link to="/">Não tenho uma conta?</Link>
       </Content>
     </Container>
   );

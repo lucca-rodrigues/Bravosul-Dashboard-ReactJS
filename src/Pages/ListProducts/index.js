@@ -1,9 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import { Link, useHistory } from 'react-router-dom';
 
-import { toast } from 'react-toastify';
+
+import Placeholder from '../../Assets/placeholder.jpg';
 import { Container, Row, Col, Card, Button } from 'react-bootstrap';
-import { FaEye, FaPencilAlt, FaTrash } from 'react-icons/fa';
+import Header from '../../Components/Header';
+import Footer from '../../Components/Footer';
+
 import { Content } from './styles';
 
 import api from '../../Services/api';
@@ -25,27 +28,31 @@ const ListProducts = () => {
 
   }, []);
   return (
-    <Container>
-      <Row>
-        {products.map(item => (
-          <>
-            {item.enabled === true ? (
-              <Col>
-                <Card style={{ width: '18rem' }} key={item.id}>
-                  <Card.Img variant="top" src="holder.js/100px180" />
-                  <Card.Body>
-                    <Card.Title>{item.name}</Card.Title>
-                    <Card.Text>
-                      {item.description}
-                    </Card.Text>
-                  </Card.Body>
-                </Card>
-              </Col>
-            ) : ''}
-          </>
-        ))}
-      </Row>
-    </Container>
+    <Content>
+      <Header />
+      <Container>
+        <Row>
+          {products.map(item => (
+            <>
+              {item.enabled === true ? (
+                <Col>
+                  <Card style={{ width: '15rem' }} key={item.id}>
+                    <Card.Img variant="top" src={Placeholder} />
+                    <Card.Body>
+                      <Card.Title>{item.name}</Card.Title>
+                      <Card.Text>
+                        {item.description}
+                      </Card.Text>
+                    </Card.Body>
+                  </Card>
+                </Col>
+              ) : ''}
+            </>
+          ))}
+        </Row>
+      </Container>
+      <Footer />
+    </Content>
   )
 }
 
