@@ -1,42 +1,52 @@
-import React, {useEffect, useState} from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link, useHistory } from 'react-router-dom';
 
 import { toast } from 'react-toastify';
-import { Container, Row, Col } from 'react-bootstrap';
+import { Container, Row, Col, Card, Button } from 'react-bootstrap';
 import { FaEye, FaPencilAlt, FaTrash } from 'react-icons/fa';
 import { Content } from './styles';
 
 import api from '../../Services/api';
 
 const ListProducts = () => {
-    const [products, setProducts] = useState([]);
+  const [products, setProducts] = useState([]);
 
-    useEffect(() => {
-      const handleProducts = () => {
-        api.get(`products`)
+  useEffect(() => {
+    const handleProducts = () => {
+      api.get(`products`)
         .then((response) => {
           setProducts(response.data);
         })
         .catch((error) => {
-          toast.error("Falha ao consultar produtos, tente novamente mais tarde!");
+          console.log("Falha ao consultar produtos", error);
         })
-      };
-      handleProducts();
+    };
+    handleProducts();
 
-    },[]);
-    return (
-      <ul>
+  }, []);
+  return (
+    <Container>
+      <Row>
         {products.map(item => (
           <>
             {item.enabled === true ? (
-              <li key={item.id}>
-                {item.name} -  {item.description} <Link to={`/products/${item.id}`}><FaEye /></Link> <FaPencilAlt /> <FaTrash />
-              </li>
+              <Col>
+                <Card style={{ width: '18rem' }} key={item.id}>
+                  <Card.Img variant="top" src="holder.js/100px180" />
+                  <Card.Body>
+                    <Card.Title>{item.name}</Card.Title>
+                    <Card.Text>
+                      {item.description}
+                    </Card.Text>
+                  </Card.Body>
+                </Card>
+              </Col>
             ) : ''}
           </>
         ))}
-    </ul>
-    )
+      </Row>
+    </Container>
+  )
 }
 
 
