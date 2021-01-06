@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { toast } from 'react-toastify';
+import { Link, useHistory } from 'react-router-dom';
 
 import { Container, Row, Col } from 'react-bootstrap';
+import { FaEye, FaPencilAlt, FaTrash } from 'react-icons/fa';
 import { Content } from './styles';
 
 import { useAuth } from '../../Context/AuthContext';
@@ -9,27 +11,37 @@ import api from '../../Services/api';
 
 
 const Dashboard = () => {
+    const history = useHistory();
+    const {signOut} = useAuth();
+    const [data, setData] = useState([]);
+    const [products, setProducts] = useState([]);
+
+    useEffect(() => {
+      const handleProducts = () => {
+        api.get(`products`)
+        .then((response) => {
+          setProducts(response.data);
+        })
+        .catch((error) => {
+          toast.error("Falha ao consultar produtos, tente novamente mais tarde!");
+        })
+      };
+      handleProducts();
+
+    },[])
+
+    const handleDetails = () => {
+      return history.push('/products/1')
+    }
 
 
-     const {signOut} = useAuth();
-    // const [data, setData] = useState([]);
+    const handleEdit = () => {
+      return history.push('/edit/1')
+    }
 
-
-    // useEffect(() => {
-    //   const handleProducts = (data) => {
-    //     api.get(`products`, data, {
-    //       //headers: { Authorization: `Bearer ${localStorage.getItem('@BravosulDashboard:token')}`}
-    //     })
-    //     .then((response) => {
-    //       setData(response.data);
-    //     })
-    //     .catch((error) => {
-    //       toast.error("Falha ao consultar produtos, tente novamente mais tarde!");
-    //     })
-    //   };
-    //   handleProducts();
-
-    // },[])
+    const handleRemove = () => {
+      alert('Tem certeza que deseja remover este Produto?')
+    }
 
     return (
         <Content>
@@ -42,10 +54,21 @@ const Dashboard = () => {
                 Menu aqui
               </Col>
               <Col>
-                Produtos: <br/>
-                {/* <ul>
-                  {data.map(item => <li key={item.id}>{item.name} -  {item.description}</li>)}
-                </ul> */}
+              <h1>Meus produtos Ativos:</h1> <br/>
+                <ul>
+                  {products.map(item => (
+                    <>
+                      {item.enabled === true ? (
+                        <li key={item.id}>
+                          {item.name} -  {item.description}
+                          <FaEye onClick={handleDetails}/>
+                          <FaPencilAlt onClick={handleEdit}/>
+                          <FaTrash onClick={handleRemove}/>
+                        </li>
+                      ) : ''}
+                    </>
+                  ))}
+                </ul>
               </Col>
             </Row>
           </Container>
