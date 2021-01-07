@@ -44,7 +44,7 @@ yarn install ou npm install
 
 Depois que tiver instalado todas as dependências basta rodar
 ```sh 
-yarn start ou spm start
+yarn start ou npm start
 ```
 
 logo uma página será aberta em seu navegador com a url: http://localhost:3000 se não abrir automaticamente você pode clicar no link que será exibido no termal
