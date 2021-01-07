@@ -100,7 +100,7 @@ Aqui vai algumas imagens minhas:
 
 # Agradecimentos
 
-Desde já eu agradço a você por ter se interessado por mim, estou aqui para facilitar a sua vida, qualquer coisa não deixe de fazer contato:
+Desde já eu agradeço a você por ter se interessado por mim, estou aqui para facilitar a sua vida, qualquer coisa não deixe de fazer contato:
 
 
 
