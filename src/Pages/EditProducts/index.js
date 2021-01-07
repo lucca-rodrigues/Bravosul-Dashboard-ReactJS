@@ -1,39 +1,41 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useCallback} from 'react';
+import { useHistory } from 'react-router-dom';
+
 import { toast } from 'react-toastify';
-import { Form, Search } from '@unform/web';
-import { useField } from '@unform/core';
-import { Link, useHistory } from 'react-router-dom';
+import { Form, Select, Input } from "@rocketseat/unform";
 
-import { Container, Row, Col, Table } from 'react-bootstrap';
-import { useParams } from 'react-router-dom';
 
+import { Container, Row, Col } from 'react-bootstrap';
 import { Content } from './styles';
-import Input from '../../Components/Input';
 import Button from '../../Components/Button';
+
+import { useParams } from 'react-router-dom';
 
 
 import api from '../../Services/api';
 
+const options = [
+  { id: 0, title: 'Disabled' },
+  { id: 1, title: 'Enabled', },
+];
 
 const EditProducts = () => {
   const {id} = useParams();
+  const history = useHistory();
 
-  const [data, setData] = useState({})
-  const name = data.name;
-  const description = data.description;
-  const enabled = data.enabled;
+
+  const [details, setDetails] = useState({})
+
+  const name = details.name;
+  const description = details.description;
+  const enabled = details.enabled;
 
 
   useEffect((data) => {
-    const handleDetails = () => {
-      api.put(`/products/${id}`, data,{
-        headers: {
-          Authorization: 'Bearer' + localStorage.getItem('@BravosulDashboard:token'),
-        },
-      })
+    async function handleDetails (){
+      await api.get(`/products/${id}`, data)
       .then((response) => {
-        setData(response.data);
-
+        setDetails(response.data);
         console.log(response.data);
       })
       .catch((error) => {
@@ -43,6 +45,26 @@ const EditProducts = () => {
     handleDetails();
 
   },[id]);
+
+
+
+  const handleUpdateDetails = useCallback(async (data) => {
+    api.put(`/products/${id}`, {
+      name: data.name,
+      description: data.description,
+      enabled: Number(data.enabled)
+    })
+    .then((response) => {
+      toast.success("Produto atualizado com sucesso!")
+      console.log(response.data);
+      history.push('/dashboard');
+
+    })
+    .catch((error) => {
+      toast.error("Falha ao atualizar os dados deste produto, verifique se as informações estão corretas ou se o seu token ainda é válido!");
+      console.log(error);
+    })
+  }, [id, history]);
 
     return (
       <Content>
@@ -54,7 +76,9 @@ const EditProducts = () => {
           </Row>
           <Row>
             <Col>
-              <Form initialData={{name: name, description: description, enabled:enabled}}>
+              <Form
+                initialData={{name: name, description: description, enabled:enabled}}
+                onSubmit={handleUpdateDetails}>
                 <label>Product name</label>
                 <Input name="name"/>
 
@@ -62,7 +86,10 @@ const EditProducts = () => {
                 <Input name="description"/>
 
                 <label>Product status</label>
-                <Input type="checkbox" name="enabled"/>
+                <Select
+                name="enabled"
+                options={options}
+              />
                 <Button type="submit">Save</Button>
               </Form>
             </Col>

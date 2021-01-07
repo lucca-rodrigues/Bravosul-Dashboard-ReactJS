@@ -9,8 +9,8 @@ import { Content } from './styles'
 import api from '../../Services/api';
 
 const options = [
-  { id: 1, title: 'true' },
-  { id: 2, title: 'false' },
+  { id: 0, title: 'Disabled' },
+  { id: 1, title: 'Enabled', },
 ];
 
 function NewProducts() {
@@ -18,22 +18,20 @@ function NewProducts() {
   const history = useHistory();
 
   const handleSubmit = useCallback(async (data) => {
-    try {
+    api.post('products', {
+      name: data.name,
+      description: data.description,
+      enabled: Number(data.enabled)
+    })
+      .then(() => {
+        toast.success("Cadastro realizado com sucesso!");
+        history.push('/dashboard');
+      })
+      .catch((error) => {
+        toast.error("Erro ao realizar Cadastro, verifique se as informações estão corretas!")
+      })
 
-      api.post('/products', {
-        name: data.name,
-        description: data.description,
-        enabled: Boolean(data.enabled)
-     })
-
-      toast.success("Cadastro realizado com sucesso!");
-      history.push('/dashboard');
-
-    } catch (err) {
-      toast.error("Erro ao realizar Cadastro, verifique se as informações estão corretas!")
-    }
-
-  }, []);
+  }, [history]);
 
   return (
     <Content>

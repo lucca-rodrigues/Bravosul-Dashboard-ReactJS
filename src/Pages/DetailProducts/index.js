@@ -19,7 +19,7 @@ const DetailProducts = () => {
   const [details, setDetails] = useState({})
 
   useEffect((data) => {
-    const handleDetails = () => {
+    async function handleDetails () {
       api.get(`/products/${id}`, data,{
         headers: {
           Authorization: 'Bearer' + localStorage.getItem('@BravosulDashboard:token'),

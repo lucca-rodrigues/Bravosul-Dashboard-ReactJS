@@ -15,10 +15,9 @@ const Dashboard = () => {
   const history = useHistory();
 
   const [products, setProducts] = useState([]);
-  const [show, setShow] = useState(false);
+  const [open, setOpen] = useState(false);
+  const [reloadingProducts, setReloadingProducts] = useState(false)
 
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
 
   useEffect(() => {
     const handleProducts = () => {
@@ -26,36 +25,43 @@ const Dashboard = () => {
         .then((response) => {
           setProducts(response.data);
         })
-        .catch((error) => {
+        .catch(() => {
           toast.error("Falha ao consultar produtos, tente novamente mais tarde!");
         })
+
     };
     handleProducts();
 
-  }, []);
+
+  }, [history, reloadingProducts]);
 
 
   const handleRemoveItem = (id) => {
-
     api.delete(`/products/${id}`)
-      .then(() => {
-        console.log(id)
-        toast.success("Produto removido com sucesso!");
-        history.pushState('/')
+    .then(() => {
+      console.log(id)
+      toast.success("Produto removido com sucesso!");
+      setReloadingProducts(true);
+      //setShow(false);
 
-      })
-      .catch((error) => {
-        toast.error("Falha ao remover produto, verifique se o seu token é válido ou faça o login novamente!");
-      })
+    })
+    .catch((error) => {
+      toast.error("Falha ao remover produto, verifique se o seu token é válido ou faça o login novamente!");
+      console.log(error);
+    })
+
+    if(reloadingProducts === true){
+      return history.push('/');
+    }
+
   };
-
 
   return (
     <Content>
       <Container>
         <Row>
           <Col>
-            <h2>Meus Produtos  Ativos</h2>
+            <h2>My products enabled</h2>
             <Table striped bordered hover>
               <thead>
                 <tr>
@@ -90,14 +96,14 @@ const Dashboard = () => {
                     ) : ''}
                   </>
 
-                )) : 'loading...'}
+                )) : 'Products Not found.'}
               </tbody>
             </Table>
           </Col>
         </Row>
-        {/* <Row>
+        <Row>
           <Col>
-            <h2>Meus Produtos Desativados:</h2> <br />
+            <h2>My products disabled</h2>
             <Table striped bordered hover>
               <thead>
                 <tr>
@@ -109,43 +115,53 @@ const Dashboard = () => {
                 </tr>
               </thead>
               <tbody>
-                {products ? products.map(item => (
+                {products ? products.map(({ id, name, description, enabled }) => (
                   <>
-                    {item.enabled === false || null ? (
-                      <tr key={item.id}>
-                        <td>{item.name}</td>
-                        <td>{item.description}</td>
-                        <td><Link to={`/products/${item.id}`}><FaEye /></Link></td>
-                        <td><FaPencilAlt onClick={handleEdit} /></td>
-                        <td><FaTrash onClick={handleRemove} /></td>
+                    {enabled === false || null ? (
+                      <tr key={id}>
+                        <td>{name}</td>
+                        <td>{description}</td>
+                        <td>
+                          <Link to={`/products/${id}`}>
+                            <FaEye />
+                          </Link>
+                        </td>
+                        <td>
+                          <Link to={`/edit/${id}`}>
+                            <FaPencilAlt />
+                          </Link>
+                        </td>
+                        <td onClick={() => handleRemoveItem(id)}>
+                          <FaTrash />
+                        </td>
                       </tr>
                     ) : ''}
                   </>
 
-                )) : 'loading...'}
+                )) : 'Products Not found.'}
               </tbody>
             </Table>
           </Col>
-        </Row> */}
-      </Container>
-      <Button variant="primary" onClick={handleShow}>
-        Launch demo modal
-      </Button>
+        </Row>
+        <Button variant="primary" onClick={() => setOpen(!open)}>
+          Launch demo modal
+        </Button>
 
-      <Modal show={show} onHide={handleClose} animation={false}>
-        <Modal.Header closeButton>
-          <Modal.Title>Delete products</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>Are you sure you want to delete this item?</Modal.Body>
-        <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
-            Close
-          </Button>
-          <Button variant="primary" onClick={handleClose}>
-            Yes
-          </Button>
-        </Modal.Footer>
-      </Modal>
+        <Modal show={open} onHide={!open} animation={false}>
+          <Modal.Header closeButton>
+            <Modal.Title>Delete products</Modal.Title>
+          </Modal.Header>
+          <Modal.Body>Are you sure you want to delete this item?</Modal.Body>
+          <Modal.Footer>
+            <Button variant="secondary" onClick={() => setOpen(false)}>
+              Close
+            </Button>
+            <Button variant="primary" onClick={() => setOpen(false)}>
+              Yes
+            </Button>
+          </Modal.Footer>
+        </Modal>
+      </Container>
     </Content>
   )
 }
