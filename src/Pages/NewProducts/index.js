@@ -23,7 +23,7 @@ function NewProducts() {
       api.post('/products', {
         name: data.name,
         description: data.description,
-        enabled: Number(data.enabled)
+        enabled: Boolean(data.enabled)
      })
 
       toast.success("Cadastro realizado com sucesso!");

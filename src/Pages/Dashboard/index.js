@@ -1,18 +1,24 @@
 import React, { useEffect, useState } from 'react';
-import { toast } from 'react-toastify';
-import { Link, useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 
-import { Container, Row, Col, Table } from 'react-bootstrap';
+import { toast } from 'react-toastify';
+import { Link } from 'react-router-dom';
+
+import { Container, Row, Col, Table, Modal, Button } from 'react-bootstrap';
 import { FaEye, FaPencilAlt, FaTrash } from 'react-icons/fa';
 import { Content } from './styles';
 
-//import { useAuth } from '../../Context/AuthContext';
 import api from '../../Services/api';
 
 
 const Dashboard = () => {
   const history = useHistory();
+
   const [products, setProducts] = useState([]);
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
 
   useEffect(() => {
     const handleProducts = () => {
@@ -28,13 +34,21 @@ const Dashboard = () => {
 
   }, []);
 
-  const handleEdit = () => {
-    return history.push('/edit/1')
-  }
 
-  const handleRemove = () => {
-    alert('Tem certeza que deseja remover este Produto?')
-  }
+  const handleRemoveItem = (id) => {
+
+    api.delete(`/products/${id}`)
+      .then(() => {
+        console.log(id)
+        toast.success("Produto removido com sucesso!");
+        history.pushState('/')
+
+      })
+      .catch((error) => {
+        toast.error("Falha ao remover produto, verifique se o seu token é válido ou faça o login novamente!");
+      })
+  };
+
 
   return (
     <Content>
@@ -53,26 +67,24 @@ const Dashboard = () => {
                 </tr>
               </thead>
               <tbody>
-                {products ? products.map(item => (
+                {products ? products.map(({ id, name, description, enabled }) => (
                   <>
-                    {item.enabled === true ? (
-                      <tr key={item.id}>
-                        <td>{item.name}</td>
-                        <td>{item.description}</td>
+                    {enabled === true ? (
+                      <tr key={id}>
+                        <td>{name}</td>
+                        <td>{description}</td>
                         <td>
-                          <Link to={`/products/${item.id}`}>
+                          <Link to={`/products/${id}`}>
                             <FaEye />
                           </Link>
                         </td>
                         <td>
-                          <Link to={`/edit/${item.id}`}>
+                          <Link to={`/edit/${id}`}>
                             <FaPencilAlt />
                           </Link>
                         </td>
-                        <td>
-                          <Link to={`/products/${item.id}`}>
-                            <FaTrash />
-                          </Link>
+                        <td onClick={() => handleRemoveItem(id)}>
+                          <FaTrash />
                         </td>
                       </tr>
                     ) : ''}
@@ -83,7 +95,7 @@ const Dashboard = () => {
             </Table>
           </Col>
         </Row>
-        <Row>
+        {/* <Row>
           <Col>
             <h2>Meus Produtos Desativados:</h2> <br />
             <Table striped bordered hover>
@@ -114,8 +126,26 @@ const Dashboard = () => {
               </tbody>
             </Table>
           </Col>
-        </Row>
+        </Row> */}
       </Container>
+      <Button variant="primary" onClick={handleShow}>
+        Launch demo modal
+      </Button>
+
+      <Modal show={show} onHide={handleClose} animation={false}>
+        <Modal.Header closeButton>
+          <Modal.Title>Delete products</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>Are you sure you want to delete this item?</Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={handleClose}>
+            Close
+          </Button>
+          <Button variant="primary" onClick={handleClose}>
+            Yes
+          </Button>
+        </Modal.Footer>
+      </Modal>
     </Content>
   )
 }
