@@ -1,71 +1,95 @@
-# Getting Started with Create React App
+# Bravosul Custom Dashboard
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Oi tudo bem?
+Meu nome é Bravosul Custom Dashboard!
 
-## Available Scripts
+O meu objetivo aqui é ser útil para o seu negócio, estou apto para:
+- Listar seus produtos
+- Criar seus produtos
+- Editar seus produtos
+- Remover seus produtos
 
-In the project directory, you can run:
 
-### `yarn start`
+Futuramente eu posso ter novas funcionalidades como:
+- Exibir preço dos produtos
+- Exibir estoque
+- Ter integração com um método de pagamento
+- virar uma loja online (E-commerce)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+Mas vamos lá, vou te mostrar como funciona o meu passo a passo!
 
-### `yarn test`
+# Instruções:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- Para me instalar na sua máquina basta fazer um
+```sh
+git clone git@github.com:lucca-rodrigues/Bravosul-Dashboard-ReactJS.git
+```
 
-### `yarn build`
+Depois entrar na pasta do projeto com:
+```sh
+cd Bravosul-Dashboard-ReactJS
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+obs: se você achar este nome muito complicado, você pode alterar o nome da pasta tranquilamente que eu não vou ficar triste 🙂
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Agora que ja entrou na pasta, basta rodar
+```sh
+yarn install ou npm install
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Depois que tiver instalado todas as dependências basta rodar
+```
+sh yarn start ou spm start
+```
 
-### `yarn eject`
+logo uma página será aberta em seu navegador com a url: http://localhost:3000 se não abrir automaticamente você pode clicar no link que será exibido no termal
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Pronto agora eu ja estou te vendo! 🙂😉
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Como você é novo aqui eu vou te explicar, eu funciono com autenticação de usuário com uma API da Bravosul.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+Você dve estar vendo uma listagem de produtos né?
+Essa listagem é de todos os produtos cadastrados e ativos dentro da plataforma, mas como você precisa acessar o painel vamos lá:
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+No canto superior direito, tem um botão com um link para "Área de membros", basta clicar neste botão e acessar o login com os seguintes dados:
 
-## Learn More
+```sh
+{
+  "email": "dev@bravosul.com.br",
+  "password": "Brvsl@2020"
+}
+```
+Clique em entrar e você ja deverá estar visualizando uma tela assim:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+<img src="./src/Assets/dashboard.jpeg" alt="Dashboard" height="350">
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Esta é a listagem de Produtos que você tem, existe uma separação de produtos ativos e inativos para facilitar o seu gerenciamento!
 
-### Code Splitting
+Nesta tela você pode ver os produtos, visualizar os detalhes dele, editar e remover. Basta clicar nos ícones respectivos que as ações serão executadas.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Obs: A MINHA API PODE FICAR INSTÁVEL AS VEZES, SE OCORRER ALGUM ERRO DE TOKEN VOCÊ PRECISA FAZER UM LOGGOUT DO SISTEMA E ENTRAR NOVAMENTE
 
-### Analyzing the Bundle Size
+Como eu sou uma versão incial, pode ser que ocorra alguns bugs mas por favor tenha paciência comigo pois estou tentando melhorar 😅😄.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
 
-### Making a Progressive Web App
+# Dashboard:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+  O Dashboard é bem simples, basta navegar no menu lateral entre "home" e "add new" para acessar as telas.
+  Algumas navegaç~eos são feitas diretamente na listagem dos produtos, por isso o meu menú só tem os itens essênciais.
 
-### Advanced Configuration
+# Layout
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+O meu layout foi projetado pensando apenas na identidade visual da Bravosul e seu site atual, mas para uma v2.0 eu ja devo ter alguns paranauê de  UI e UX para melhorar ainda mais.
 
-### Deployment
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+# Screenshots
+Aqui vai algumas imagens minhas:
 
-### `yarn build` fails to minify
+<img src="./src/Assets/list-products.jpeg" alt="Dashboard" height="350">
+<img src="./src/Assets/login.jpeg" alt="Dashboard" height="350">
+<img src="./src/Assets/dashboard.jpeg" alt="Dashboard" height="350">
+<img src="./src/Assets/delete-products.jpeg" alt="Dashboard" height="350">
+<img src="./src/Assets/create-and-edit.jpeg" alt="Dashboard" height="350">
+<img src="./src/Assets/products-details.jpeg" alt="Dashboard" height="350">
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
-# Bravosul-Dashboard-ReactJS
