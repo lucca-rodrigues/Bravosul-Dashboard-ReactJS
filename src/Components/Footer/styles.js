@@ -8,8 +8,9 @@ export const Content = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
-    position: relative;
+    position: fixed;
     bottom: 0;
+
     width: 100%;
     color: #fff;
     margin-top:50px;
@@ -18,5 +19,9 @@ export const Content = styled.div`
     p{
       margin-bottom: 0;
     }
+`
+
+export const Container = styled.div`
+
 `
 
