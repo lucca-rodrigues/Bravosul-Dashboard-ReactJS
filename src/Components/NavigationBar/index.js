@@ -6,7 +6,6 @@ import { Content, Exit } from './styles';
 import { FaPlusCircle, FaHouseDamage, FaUser } from 'react-icons/fa';
 
 import ExitImage from '../../Assets/exit.svg';
-import Header from '../../Components/Header';
 
 import { useAuth } from '../../Context/AuthContext';
 
@@ -27,7 +26,7 @@ const NavigationBar = ({ children }) => {
             </Link>
           </span>
           <span>
-            <Link to="/products/new">
+            <Link to="/new">
               <FaPlusCircle size={25}/>
               Add New
             </Link>

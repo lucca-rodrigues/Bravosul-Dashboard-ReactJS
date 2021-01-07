@@ -11,4 +11,9 @@ export const Content = styled.div`
   .title-page{
     text-align: right;
   }
+
+  button{
+    max-width: 300px;
+    float: right;
+  }
 `

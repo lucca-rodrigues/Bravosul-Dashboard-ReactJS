@@ -51,8 +51,8 @@ const DetailProducts = () => {
             </Col>
             <Col>
               <p>Produto Id: {id}</p>
-              <h2>{details && details.name}</h2>
-              <p>{details && details.description}</p>
+              <h2>{details.name ||  '-'}</h2>
+              <p>{details.description || '-'}</p>
                 <Link to="/dashboard">
                   <Button>Voltar</Button>
                 </Link>

@@ -22,7 +22,7 @@ export default function Routes() {
         <NavigationBar>
           <ReactRoutes path="/dashboard" component={Dashboard} isPrivate />
         <ReactRoutes path="/products/:id" component={DetailProducts} isPrivate/>
-          <ReactRoutes path="/products/new" component={NewProducts} isPrivate />
+          <ReactRoutes path="/new" component={NewProducts} isPrivate />
           <ReactRoutes path="/edit/:id" component={EditProducts} isPrivate />
         </NavigationBar>
 

@@ -41,7 +41,7 @@ const Dashboard = () => {
       <Container>
         <Row>
           <Col>
-            <h2>Produtos  Ativos</h2>
+            <h2>Meus Produtos  Ativos</h2>
             <Table striped bordered hover>
               <thead>
                 <tr>
@@ -85,7 +85,7 @@ const Dashboard = () => {
         </Row>
         <Row>
           <Col>
-            <h2>Produtos Desativados:</h2> <br />
+            <h2>Meus Produtos Desativados:</h2> <br />
             <Table striped bordered hover>
               <thead>
                 <tr>
