@@ -18,15 +18,15 @@ export default function Routes() {
         <ReactRoutes path="/" exact component={ListProducts} />
         <ReactRoutes path="/signin" component={SignIn} />
         <ReactRoutes path="/login" component={Login} />
+        <ReactRoutes path="/*" component={NotFound} />
 
         <NavigationBar>
           <ReactRoutes path="/dashboard" component={Dashboard} isPrivate />
-        <ReactRoutes path="/products/:id" component={DetailProducts} isPrivate/>
+          <ReactRoutes path="/products/:id" component={DetailProducts} isPrivate/>
           <ReactRoutes path="/new" component={NewProducts} isPrivate />
           <ReactRoutes path="/edit/:id" component={EditProducts} isPrivate />
         </NavigationBar>
 
-        <ReactRoutes path="*" component={NotFound} />
       </Switch>
   );
 }

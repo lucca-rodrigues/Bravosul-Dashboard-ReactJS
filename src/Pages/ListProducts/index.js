@@ -1,9 +1,7 @@
 import React, { useEffect, useState } from 'react'
-import { Link, useHistory } from 'react-router-dom';
-
 
 import Placeholder from '../../Assets/placeholder.jpg';
-import { Container, Row, Col, Card, Button } from 'react-bootstrap';
+import { Container, Row, Col, Card } from 'react-bootstrap';
 import Header from '../../Components/Header';
 import Footer from '../../Components/Footer';
 

@@ -37,7 +37,7 @@ export const Content = styled.div`
       align-items: center;
       justify-content: center;
       margin: 15px auto!important;
-      padding: 20px;
+      padding: 30px;
     }
 
     a{

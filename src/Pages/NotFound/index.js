@@ -1,16 +1,31 @@
-import React, {useEffect, useState} from 'react'
-import { Link, useHistory } from 'react-router-dom';
+import React from 'react'
+import { Link } from 'react-router-dom';
 
-import { toast } from 'react-toastify';
 import { Container, Row, Col } from 'react-bootstrap';
-import { FaEye, FaPencilAlt, FaTrash } from 'react-icons/fa';
 import { Content } from './styles';
+import Button from '../../Components/Button';
+
+import Icon from '../../Assets/icon.png';
 
 
 const NotFound = () => {
 
     return (
-      <h1>NotFound</h1>
+      <Content>
+        <Container>
+          <Row>
+            <Col>
+            <h2>Page not found</h2>
+            <Link to="/">
+              <Button>Go to Home?</Button>
+            </Link>
+            </Col>
+            <Col>
+              <img src={Icon} alt="icon not found" />
+            </Col>
+          </Row>
+        </Container>
+      </Content>
     )
 }
 

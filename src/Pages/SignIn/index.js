@@ -30,7 +30,7 @@ const SignIn = () => {
       toast.success("Login realizado com sucesso!");
 
     } catch (err) {
-      toast.error("Erro ao realizar login, verifique se suas credenciais estão corretas!")
+      toast.error("Erro ao realizar cadastro, esta funcionalidade esta indisponível no momento!")
     }
 
   }, [history, signIn]);
