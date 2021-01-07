@@ -10,7 +10,7 @@ import NewProducts from '../Pages/NewProducts';
 import DetailProducts from '../Pages/DetailProducts';
 import EditProducts from '../Pages/EditProducts';
 import ListProducts from '../Pages/ListProducts';
-import NotFound from '../Pages/NotFound';
+// import NotFound from '../Pages/NotFound';
 
 export default function Routes() {
   return (
@@ -18,7 +18,7 @@ export default function Routes() {
         <ReactRoutes path="/" exact component={ListProducts} />
         <ReactRoutes path="/signin" component={SignIn} />
         <ReactRoutes path="/login" component={Login} />
-        <ReactRoutes path="/*" component={NotFound} />
+        {/* <ReactRoutes path="*" component={NotFound} /> */}
 
         <NavigationBar>
           <ReactRoutes path="/dashboard" component={Dashboard} isPrivate />
