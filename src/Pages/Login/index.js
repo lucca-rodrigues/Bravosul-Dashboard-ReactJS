@@ -5,7 +5,6 @@ import { Form } from '@unform/web';
 // import * as Yup from 'yup';
 
 import { Container, Content} from './styles';
-// import Logo from '../../Assets/logo-pages.svg';
 import Input from '../../Components/Input';
 import Button from '../../Components/Button';
 
@@ -23,17 +22,6 @@ const Login = () => {
     try {
       formRef.current?.setErrors({});
 
-      // const schema = Yup.object().shape({
-      //   email: Yup.string()
-      //     .email('Digite um e-mail válido')
-      //     .required('E-mail obrigatório'),
-      //   password: Yup.string().required('Senha obrigatória'),
-      // });
-
-      // await schema.validate(data, {
-      //   abortEarly: false,
-      // });
-
       await signIn({
         id: data.id,
         email: data.email,
@@ -43,10 +31,6 @@ const Login = () => {
       toast.success("Login realizado com sucesso!");
 
     } catch (err) {
-      // if (err instanceof Yup.ValidationError) {
-
-      //   formRef.current?.setErrors(err);
-      // }
       toast.error("Erro ao realizar login, verifique se suas credenciais estão corretas!")
     }
 
@@ -56,11 +40,12 @@ const Login = () => {
     <Container>
       <Content>
         <Form onSubmit={handleSubmit}>
+          <img src="https://bravosul.com.br/logo-bravosul.svg" alt="Logo Bravosul"/>
           <Input name="email" placeholder="Email"/>
           <Input name="password" placeholder="Password" type="password"/>
           <Button type="submit">Entrar</Button>
         </Form>
-        <Link to="/register">Não tenho uma conta?</Link>
+        <Link to="/">Não tenho uma conta?</Link>
       </Content>
     </Container>
   );

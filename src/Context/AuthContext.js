@@ -20,8 +20,7 @@ const AuthProvider = ({ children }) => {
 
     const signOut = useCallback(() => {
       localStorage.removeItem('@BravosulDashboard:token');
-      localStorage.removeItem('@BravosulDashboard:identifier');
-      localStorage.removeItem('@BravosulDashboard:id');
+      localStorage.removeItem('@BravosulDashboard:user');
 
       setData({});
     }, []);

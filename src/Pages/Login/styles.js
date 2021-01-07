@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-    background: #00A4ED;
+    background: #00B35C;
     display: flex;
     height: 100vh;
     align-items: stretch;
@@ -53,11 +53,10 @@ export const Content = styled.div`
       justify-content: center;
       color: #fff;
   }
+
+  img{
+      filter: brightness(0) invert(1);
+      max-width: 100px;
+      margin: auto;
+    }
 `
-
-
-// import styled from 'styled-components';
-
-// export const Content = styled.div`
-
-// `
