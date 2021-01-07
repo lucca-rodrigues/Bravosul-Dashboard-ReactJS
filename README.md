@@ -80,7 +80,7 @@ Como eu sou uma versão incial, pode ser que ocorra alguns bugs mas por favor te
 # Dashboard:
 
   O Dashboard é bem simples, basta navegar no menu lateral entre "home" e "add new" para acessar as telas.
-  Algumas navegaç~eos são feitas diretamente na listagem dos produtos, por isso o meu menú só tem os itens essênciais.
+  Algumas navegações são feitas diretamente na listagem dos produtos, por isso o meu menú só tem os itens essênciais.
 
 # Layout
 
