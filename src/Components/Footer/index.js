@@ -1,12 +1,10 @@
 import React from 'react';
-import { Container, Row, Col } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
 import { Content } from './styles'
 
 
 const Footer = () => {
   return (
-    <Content>
+    <Content data-testid="component-footer">
       <p>Porto Alegre © Bravosul 2020</p>
     </Content>
   )

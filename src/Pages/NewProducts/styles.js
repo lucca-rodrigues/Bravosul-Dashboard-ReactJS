@@ -14,6 +14,10 @@ export const Content = styled.div`
 
   form{
     padding-top: 50px;
+
+    label {
+        margin-top: 10px;
+    }
   }
 
 `

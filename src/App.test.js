@@ -1,12 +1,13 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import ReactDOM from 'react-dom'
+import App from './index';
 
-import App from './App.js';
+describe('Test my App', () => {
+    it('render my Appo', () =>{
+        const div = document.createElement('div');
+        ReactDOM.render(<App />, div);
+        ReactDOM.unmountComponentAtNode(div);
+    });
 
-describe('Teste my App', () => {
-  it('Test render my App', () => {
-    const wrapper = shallow(<App />);
-    expect(wrapper.exists()).toBeTruthy();
-  });
 
 });

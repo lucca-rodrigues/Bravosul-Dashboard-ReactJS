@@ -94,3 +94,12 @@ h1 {
   float: right;
   font-size: 20px;
 }
+
+
+select#enabled {
+  border: 1px solid #2f2e41;
+  border-radius: 10px;
+  min-width: 300px;
+  padding: 5px;
+  margin: 0px 30px;
+}

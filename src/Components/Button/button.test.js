@@ -1,30 +1,28 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import {render, fireEvent} from '@testing-library/react';
 
 import Button from './index';
 
 
 describe('New Custom component  Button', () => {
   it('Test render a component button', () => {
-    const wrapper = shallow(<Button />);
-    expect(wrapper.exists()).toBeTruthy();
-  });
+    const {getByTestId} = render(<Button />);
+    fireEvent.click(getByTestId('component-button'))  });
+  },
 
-  it('Test label button', () => {
-    const wrapper = shallow(<Button>Entrar</Button>);
-    expect(wrapper.exists()).toBeTruthy();
-  });
+  // it('Test render a component button', () => {
+  //   const {getByTestId} = render(<Button>Entrar</Button>);
+  //   fireEvent.click(getByTestId('component-button'));
+  // },
 
-  it('Test type button', () => {
-    const wrapper = shallow(<Button type="submit">Entrar</Button>);
-    expect(wrapper.exists()).toBeTruthy();
-  });
+  // it('Test type button', () => {
+  //   const {getByTestId} = render(<Button type="submit">Entrar</Button>);
+  //   fireEvent.click(getByTestId('component-button'));
+  // },
 
-  it('Test click button', () => {
-    const wrapper = shallow(
-      <Button type="submit" onClick={() => alert('Click ok!')}>Entrar</Button>
-    );
-    expect(wrapper.exists()).toBeTruthy();
-  });
+  // it('Test click button', () => {
+  //   const {getByTestId} = render(<Button type="submit" onClick={() => alert('Click ok!')}>Entrar</Button>);
+  //   fireEvent.click(getByTestId('component-button'));
+  // }
 
 });
