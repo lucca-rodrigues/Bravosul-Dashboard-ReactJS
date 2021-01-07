@@ -53,7 +53,7 @@ Pronto agora eu ja estou te vendo! 🙂😉
 
 Como você é novo aqui eu vou te explicar, eu funciono com autenticação de usuário com uma API da Bravosul.
 
-Você dve estar vendo uma listagem de produtos né?
+Você deve estar vendo uma listagem de produtos né?
 Essa listagem é de todos os produtos cadastrados e ativos dentro da plataforma, mas como você precisa acessar o painel vamos lá:
 
 No canto superior direito, tem um botão com um link para "Área de membros", basta clicar neste botão e acessar o login com os seguintes dados:
