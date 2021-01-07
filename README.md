@@ -121,7 +121,7 @@ Me acompanhe nas minhas redes sociais.
   <a href="mailto:contato.luccarodrigues@gmail.com" target="_blank" >
     <img alt="Email" src="https://img.shields.io/badge/Email--%23F8952D?style=social&logo=gmail"></a>
 
-  <a href="https://api.whatsapp.com/send?phone=5541984495419" target="_blank" >
+  <a href="https://api.whatsapp.com/send?phone=554198938062" target="_blank" >
     <img alt="WhatsApp" src="https://img.shields.io/badge/Whatsapp--%23F8952D?style=social&logo=whatsapp"></a>
 </p>
 

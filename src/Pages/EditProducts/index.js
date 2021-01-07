@@ -23,7 +23,6 @@ const EditProducts = () => {
   const {id} = useParams();
   const history = useHistory();
 
-
   const [details, setDetails] = useState({})
 
   const name = details.name;

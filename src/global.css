@@ -103,3 +103,7 @@ select#enabled {
   padding: 5px;
   margin: 0px 30px;
 }
+
+input{
+  padding: 30px;
+}

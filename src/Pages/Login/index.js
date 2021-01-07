@@ -1,11 +1,10 @@
 import React, { useCallback, useRef } from 'react';
 import {Link, useHistory} from 'react-router-dom';
 import { toast } from 'react-toastify';
-import { Form } from '@unform/web';
-// import * as Yup from 'yup';
+import { Form, Input } from "@rocketseat/unform";
+
 
 import { Container, Content} from './styles';
-import Input from '../../Components/Input';
 import Button from '../../Components/Button';
 
 import { useAuth } from '../../Context/AuthContext';
@@ -13,11 +12,9 @@ import { useAuth } from '../../Context/AuthContext';
 const Login = () => {
   const formRef = useRef(null);
 
-  const {user, signIn} = useAuth();
+  const {signIn} = useAuth();
   const history = useHistory();
 
-
-  console.log(user);
   const handleSubmit = useCallback(async (data) => {
     try {
       formRef.current?.setErrors({});
