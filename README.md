@@ -20,7 +20,7 @@ Futuramente eu posso ter novas funcionalidades como:
 Mas vamos lá, vou te mostrar como funciona o meu passo a passo!
 
 # Observação
-Se você preferir pular as instruções de instalação e quiser acompanhar a minah versão beta online, fique a vontate para acessar aqui:
+Se você preferir pular as instruções de instalação e quiser acompanhar a minha versão beta online, fique a vontate para acessar aqui:
 https://bravosul-custom-dashboard.netlify.app/
 
 # Instruções:
@@ -98,7 +98,7 @@ Aqui vai algumas imagens minhas:
 <img src="./src/Assets/product-details.jpeg" alt="Dashboard" height="350">
 
 
-# Agreadecimentos
+# Agradecimentos
 
 Desde já eu agradço a você por ter se interessado por mim, estou aqui para facilitar a sua vida, qualquer coisa não deixe de fazer contato:
 
