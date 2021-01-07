@@ -19,6 +19,10 @@ Futuramente eu posso ter novas funcionalidades como:
 
 Mas vamos lá, vou te mostrar como funciona o meu passo a passo!
 
+# Observação
+Se você preferir pular as instruções de instalação e quiser acompanhar a minah versão beta online, fique a vontate para acessar aqui:
+https://bravosul-custom-dashboard.netlify.app/
+
 # Instruções:
 
 - Para me instalar na sua máquina basta fazer um
