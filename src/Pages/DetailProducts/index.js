@@ -2,9 +2,10 @@ import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 
-
 import { Container, Row, Col } from 'react-bootstrap';
 import Button from '../../Components/Button';
+import ButtonPrev from '../../Components/ButtonPrev';
+
 
 import { Content } from './styles';
 
@@ -46,15 +47,15 @@ const DetailProducts = () => {
             </Col>
           </Row>
           <Row>
-            <Col>
-              <img src={Placeholder} alt=""/>
+            <Col sm={12} md={4} lg={6}>
+              <img src={Placeholder} alt="Placeholder"/>
             </Col>
-            <Col>
+            <Col sm={12} md={8} lg={6} className="description">
               <p>Produto Id: {id}</p>
               <h2>{details.name ||  '-'}</h2>
               <p>{details.description || '-'}</p>
                 <Link to="/dashboard">
-                  <Button>Voltar</Button>
+                  <Button>Prev to dashboard</Button>
                 </Link>
             </Col>
           </Row>

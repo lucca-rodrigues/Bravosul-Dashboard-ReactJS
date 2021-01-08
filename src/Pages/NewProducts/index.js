@@ -5,8 +5,8 @@ import { toast } from 'react-toastify';
 
 import { Container, Row, Col } from 'react-bootstrap';
 import { Content } from './styles';
+import ButtonPrev from '../../Components/ButtonPrev';
 import Button from '../../Components/Button';
-
 
 import api from '../../Services/api';
 
@@ -43,6 +43,7 @@ function NewProducts() {
             <h1>Create Products</h1>
           </Col>
         </Row>
+        <ButtonPrev/>
         <Row>
           <Col>
             <Form onSubmit={handleSubmit}>

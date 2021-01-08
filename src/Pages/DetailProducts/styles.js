@@ -16,4 +16,14 @@ export const Content = styled.div`
     max-width: 300px;
     float: right;
   }
+
+  @media(max-width: 1000px){
+    img{
+      width: 100%;
+    }
+
+    .description{
+      margin-top: 30px;
+    }
+  }
 `

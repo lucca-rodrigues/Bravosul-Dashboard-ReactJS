@@ -83,7 +83,7 @@ form textarea {
 
 
 .main-menu.col {
-  position: fixed;
+  /* position: fixed; */
   z-index: 999999;
   max-width: 130px;
 }
@@ -106,4 +106,21 @@ select#enabled {
 
 input{
   padding: 30px;
+}
+
+.button-prev.row button {
+  background: #00b35c;
+  float: right;
+}
+
+
+@media(max-width: 1000px){
+  h1{
+    margin-bottom: 30px;
+  }
+
+  select#enabled {
+    width: 100%;
+    margin: 0px;
+  }
 }

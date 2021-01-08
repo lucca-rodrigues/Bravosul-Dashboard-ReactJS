@@ -33,8 +33,8 @@ const ListProducts = () => {
           {products.map(item => (
             <>
               {item.enabled === true ? (
-                <Col sm="12" md="3" lg="3" xl="3">
-                  <Card key={item.id}>
+                <Col sm="12" md="4" lg="3" xl="3" key={item.id} className="product-item">
+                  <Card>
                     <Card.Img variant="top" src={Placeholder} />
                     <Card.Body>
                       <Card.Title>{item.name}</Card.Title>
