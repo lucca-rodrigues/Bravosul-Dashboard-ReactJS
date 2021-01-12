@@ -88,7 +88,6 @@ const EditProducts = () => {
                 <Select
                 name="enabled"
                 options={options}
-                value={enabled}
               />
                 <Button type="submit">Save</Button>
               </Form>
