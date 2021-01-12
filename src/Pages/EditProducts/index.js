@@ -59,7 +59,7 @@ const EditProducts = () => {
 
     })
     .catch((error) => {
-      toast.error("Falha ao atualizar os dados deste produto, verifique se as informações estão corretas ou se o seu token ainda é válido!");
+      toast.error("Falha ao atualizar os dados deste produto!");
       console.log(error);
     })
   }, [id, history]);
@@ -88,6 +88,7 @@ const EditProducts = () => {
                 <Select
                 name="enabled"
                 options={options}
+                value={enabled}
               />
                 <Button type="submit">Save</Button>
               </Form>

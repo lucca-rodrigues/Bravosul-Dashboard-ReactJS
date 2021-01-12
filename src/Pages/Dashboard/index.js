@@ -47,7 +47,7 @@ const Dashboard = () => {
 
       })
       .catch((error) => {
-        toast.error("Falha ao remover produto, verifique se o seu token é válido ou faça o login novamente!");
+        toast.error("Falha ao remover produto, tente novamente mais tarde!");
         console.log(error);
       })
 
