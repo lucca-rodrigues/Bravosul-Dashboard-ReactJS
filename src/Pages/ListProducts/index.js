@@ -26,31 +26,33 @@ const ListProducts = () => {
 
   }, []);
   return (
-    <Content>
-      <Header />
-      <Container>
-        <Row>
-          {products.map(item => (
-            <>
-              {item.enabled === true ? (
-                <Col sm="12" md="4" lg="3" xl="3" key={item.id} className="product-item">
-                  <Card>
-                    <Card.Img variant="top" src={Placeholder} />
-                    <Card.Body>
-                      <Card.Title>{item.name}</Card.Title>
-                      <Card.Text>
-                        {item.description}
-                      </Card.Text>
-                    </Card.Body>
-                  </Card>
-                </Col>
-              ) : ''}
-            </>
-          ))}
-        </Row>
-      </Container>
+    <>
+      <Content>
+        <Header />
+        <Container>
+          <Row>
+            {products.map(item => (
+              <>
+                {item.enabled === true ? (
+                  <Col sm="12" md="4" lg="3" xl="3" key={item.id} className="product-item">
+                    <Card>
+                      <Card.Img variant="top" src={Placeholder} />
+                      <Card.Body>
+                        <Card.Title>{item.name}</Card.Title>
+                        <Card.Text>
+                          {item.description}
+                        </Card.Text>
+                      </Card.Body>
+                    </Card>
+                  </Col>
+                ) : ''}
+              </>
+            ))}
+          </Row>
+        </Container>
+      </Content>
       <Footer />
-    </Content>
+    </>
   )
 }
 

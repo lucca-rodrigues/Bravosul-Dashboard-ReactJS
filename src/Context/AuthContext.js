@@ -1,9 +1,15 @@
 import React, { createContext, useCallback, useState, useContext } from 'react';
+import { useHistory } from 'react-router-dom';
+import { toast } from 'react-toastify';
+
+
 import api from '../Services/api';
+
 
 const AuthContext = createContext();
 
 const AuthProvider = ({ children }) => {
+    const history = useHistory();
     const [data, setData] = useState(() => {
       const token = localStorage.getItem('@BravosulDashboard:token');
       const email = localStorage.getItem('@BravosulDashboard:identifier');
@@ -17,6 +23,18 @@ const AuthProvider = ({ children }) => {
 
       return ({id, token, email});
     });
+
+    api.interceptors.response.use(
+      response => response,
+      err => {
+        if(err.response.status === 403){
+          toast.error('Your token is expired or invalid, please log in again');
+          signOut();
+          history.push('/login');
+        }
+        throw err;
+      },
+    );
 
     const signOut = useCallback(() => {
       localStorage.removeItem('@BravosulDashboard:token');
@@ -35,9 +53,6 @@ const AuthProvider = ({ children }) => {
       const id = response.data.user.id;
       const identifier = response.data && response.data.user.email;
       const username = response.data && response.data.user.username;
-
-
-      console.log(response.data);
 
       localStorage.setItem('@BravosulDashboard:token', token);
       localStorage.setItem('@BravosulDashboard:user', JSON.stringify({id, username, email}));

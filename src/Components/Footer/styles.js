@@ -5,7 +5,9 @@ export const Content = styled.div`
     padding: 20px;
     text-align: center;
     top: 100%;
-    position: absolute;
+    position: relative;
+    margin-bottom: -50px;
+    margin-bottom: 0;
 
     width: 100%;
     color: #fff;
