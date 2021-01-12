@@ -1,11 +1,8 @@
 import React, {useState, useEffect, useCallback} from 'react';
 import { useHistory } from 'react-router-dom';
-import { Link } from 'react-router-dom';
 
 import { toast } from 'react-toastify';
 import { Form, Select, Input } from "@rocketseat/unform";
-
-import { FaArrowLeft } from 'react-icons/fa';
 
 import { Container, Row, Col } from 'react-bootstrap';
 import { Content } from './styles';

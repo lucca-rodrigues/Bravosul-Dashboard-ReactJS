@@ -4,8 +4,6 @@ import { Link } from 'react-router-dom';
 
 import { Container, Row, Col } from 'react-bootstrap';
 import Button from '../../Components/Button';
-import ButtonPrev from '../../Components/ButtonPrev';
-
 
 import { Content } from './styles';
 

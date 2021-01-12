@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const Content = styled.div`
     background: #00E676;
     padding: 20px;
-    margin-bottom: 50px;
+    margin-bottom: 30px;
     text-align: right;
     display: flex;
     align-items: center;

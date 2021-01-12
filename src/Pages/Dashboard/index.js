@@ -16,7 +16,8 @@ const Dashboard = () => {
 
   const [products, setProducts] = useState([]);
   const [open, setOpen] = useState(false);
-  const [reloadingProducts, setReloadingProducts] = useState(false)
+  const [reloadingProducts, setReloadingProducts] = useState(false);
+  const [removeId, setRemoveId] = useState();
 
 
   useEffect(() => {
@@ -38,19 +39,19 @@ const Dashboard = () => {
 
   const handleRemoveItem = (id) => {
     api.delete(`/products/${id}`)
-    .then(() => {
-      console.log(id)
-      toast.success("Produto removido com sucesso!");
-      setReloadingProducts(true);
-      //setShow(false);
+      .then(() => {
+        console.log(id)
+        toast.success("Produto removido com sucesso!");
+        setReloadingProducts(true);
+        //setShow(false);
 
-    })
-    .catch((error) => {
-      toast.error("Falha ao remover produto, verifique se o seu token é válido ou faça o login novamente!");
-      console.log(error);
-    })
+      })
+      .catch((error) => {
+        toast.error("Falha ao remover produto, verifique se o seu token é válido ou faça o login novamente!");
+        console.log(error);
+      })
 
-    if(reloadingProducts === true){
+    if (reloadingProducts === true) {
       return history.push('/');
     }
 
@@ -89,7 +90,10 @@ const Dashboard = () => {
                             <FaPencilAlt />
                           </Link>
                         </td>
-                        <td onClick={() => handleRemoveItem(id)}>
+                        <td onClick={() => {
+                          setRemoveId(id)
+                          setOpen(true)
+                        }}>
                           <FaTrash />
                         </td>
                       </tr>
@@ -131,7 +135,10 @@ const Dashboard = () => {
                             <FaPencilAlt />
                           </Link>
                         </td>
-                        <td onClick={() => handleRemoveItem(id)}>
+                        <td onClick={() => {
+                          setRemoveId(id)
+                          setOpen(true)
+                        }}>
                           <FaTrash />
                         </td>
                       </tr>
@@ -143,12 +150,9 @@ const Dashboard = () => {
             </Table>
           </Col>
         </Row>
-        <Button variant="primary" onClick={() => setOpen(!open)}>
-          Launch demo modal
-        </Button>
 
         <Modal show={open} onHide={!open} animation={false}>
-          <Modal.Header closeButton>
+          <Modal.Header>
             <Modal.Title>Delete products</Modal.Title>
           </Modal.Header>
           <Modal.Body>Are you sure you want to delete this item?</Modal.Body>
@@ -156,7 +160,11 @@ const Dashboard = () => {
             <Button variant="secondary" onClick={() => setOpen(false)}>
               Close
             </Button>
-            <Button variant="primary" onClick={() => setOpen(false)}>
+            <Button variant="primary" onClick={() => {
+              handleRemoveItem(removeId)
+              setRemoveId('')
+              setOpen(false)
+            }}>
               Yes
             </Button>
           </Modal.Footer>

@@ -3,13 +3,9 @@ import styled from 'styled-components';
 export const Content = styled.div`
     background: #00E676;
     padding: 20px;
-    margin-bottom: 50px;
     text-align: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: fixed;
-    bottom: 0;
+    top: 100%;
+    position: absolute;
 
     width: 100%;
     color: #fff;
