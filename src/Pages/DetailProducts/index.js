@@ -50,7 +50,7 @@ const DetailProducts = () => {
             </Col>
             <Col sm={12} md={8} lg={6} className="description">
               <p>Produto Id: {id}</p>
-              <h2>{details.name ||  '-'}</h2>
+              <h2>{details.title ||  '-'}</h2>
               <p>{details.description || '-'}</p>
                 <Link to="/dashboard">
                   <Button>Prev to dashboard</Button>

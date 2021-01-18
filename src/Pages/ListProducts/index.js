@@ -14,7 +14,7 @@ const ListProducts = () => {
 
   useEffect(() => {
     const handleProducts = () => {
-      api.get(`products`)
+      api.get('/products')
         .then((response) => {
           setProducts(response.data);
         })
@@ -33,7 +33,7 @@ const ListProducts = () => {
           <Row>
             {products.map(item => (
               <>
-                {item.enabled === true ? (
+                {item.enabled === 1 ? (
                   <Col sm="12" md="4" lg="3" xl="3" key={item.id} className="product-item">
                     <Card>
                       <Card.Img variant="top" src={Placeholder} />

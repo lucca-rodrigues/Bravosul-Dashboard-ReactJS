@@ -11,8 +11,8 @@ import Button from '../../Components/Button';
 import api from '../../Services/api';
 
 const options = [
-  { id: 0, title: 'Disabled' },
-  { id: 1, title: 'Enabled', },
+  { id: false, title: 'Disabled' },
+  { id: true, title: 'Enabled', },
 ];
 
 function NewProducts() {
@@ -20,10 +20,10 @@ function NewProducts() {
   const history = useHistory();
 
   const handleSubmit = useCallback(async (data) => {
-    api.post('products', {
-      name: data.name,
+    api.post('/products', {
+      title: data.title,
       description: data.description,
-      enabled: Number(data.enabled)
+      enabled: Boolean(data.enabled),
     })
       .then(() => {
         toast.success("Cadastro realizado com sucesso!");
@@ -48,7 +48,7 @@ function NewProducts() {
           <Col>
             <Form onSubmit={handleSubmit}>
               <label>Product name</label>
-              <Input name="name" placeholder="Name" />
+              <Input name="title" placeholder="Name" />
 
               <label>Product description</label>
               <Input name="description" placeholder="description" />

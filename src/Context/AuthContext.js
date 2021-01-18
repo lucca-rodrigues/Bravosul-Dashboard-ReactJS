@@ -27,7 +27,7 @@ const AuthProvider = ({ children }) => {
     api.interceptors.response.use(
       response => response,
       err => {
-        if(err.response.status === 403){
+        if(err.response.status === 401){
           toast.error('Your token is expired or invalid, please log in again');
           signOut();
           history.push('/login');
@@ -44,12 +44,12 @@ const AuthProvider = ({ children }) => {
     }, []);
 
     const signIn = useCallback(async ({ email, password }) => {
-      const response = await api.post('/auth/local', {
+      const response = await api.post('/sessions', {
         identifier: email,
         password : password,
       });
 
-      const token = response.data && response.data.jwt;
+      const token = response.data && response.data.token.token;
       const id = response.data.user.id;
       const identifier = response.data && response.data.user.email;
       const username = response.data && response.data.user.username;

@@ -22,7 +22,7 @@ const Dashboard = () => {
 
   useEffect(() => {
     const handleProducts = () => {
-      api.get(`products`)
+      api.get('/products')
         .then((response) => {
           setProducts(response.data);
         })
@@ -66,7 +66,7 @@ const Dashboard = () => {
             <Table striped bordered hover>
               <thead>
                 <tr>
-                  <th>Product Name</th>
+                  <th>Product title</th>
                   <th>Description</th>
                   <th>View</th>
                   <th>Edit</th>
@@ -74,11 +74,11 @@ const Dashboard = () => {
                 </tr>
               </thead>
               <tbody>
-                {products ? products.map(({ id, name, description, enabled }) => (
+                {products ? products.map(({ id, title, description, enabled }) => (
                   <>
-                    {enabled === true ? (
+                    {enabled === 1 ? (
                       <tr key={id}>
-                        <td>{name}</td>
+                        <td>{title}</td>
                         <td>{description}</td>
                         <td>
                           <Link to={`/products/${id}`}>
@@ -111,7 +111,7 @@ const Dashboard = () => {
             <Table striped bordered hover>
               <thead>
                 <tr>
-                  <th>Product Name</th>
+                  <th>Product title</th>
                   <th>Description</th>
                   <th>View</th>
                   <th>Edit</th>
@@ -119,11 +119,11 @@ const Dashboard = () => {
                 </tr>
               </thead>
               <tbody>
-                {products ? products.map(({ id, name, description, enabled }) => (
+                {products ? products.map(({ id, title, description, enabled }) => (
                   <>
-                    {enabled === false || null ? (
+                    {enabled === 0 ? (
                       <tr key={id}>
-                        <td>{name}</td>
+                        <td>{title}</td>
                         <td>{description}</td>
                         <td>
                           <Link to={`/products/${id}`}>

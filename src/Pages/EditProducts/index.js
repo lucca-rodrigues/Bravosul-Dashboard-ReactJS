@@ -24,7 +24,7 @@ const EditProducts = () => {
 
   const [details, setDetails] = useState({})
 
-  const name = details.name;
+  const title = details.title;
   const description = details.description;
   const enabled = details.enabled;
 
@@ -48,7 +48,7 @@ const EditProducts = () => {
 
   const handleUpdateDetails = useCallback(async (data) => {
     api.put(`/products/${id}`, {
-      name: data.name,
+      title: data.title,
       description: data.description,
       enabled: Number(data.enabled)
     })
@@ -76,10 +76,10 @@ const EditProducts = () => {
           <Row>
             <Col>
               <Form
-                initialData={{name: name, description: description, enabled:enabled}}
+                initialData={{title: title, description: description, enabled:enabled}}
                 onSubmit={handleUpdateDetails}>
                 <label>Product name</label>
-                <Input name="name"/>
+                <Input name="title"/>
 
                 <label>Product description</label>
                 <Input name="description"/>

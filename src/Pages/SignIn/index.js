@@ -1,4 +1,4 @@
-import React, { useCallback, useRef } from 'react';
+import React, { useCallback } from 'react';
 import {Link, useHistory} from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { Form, Input } from "@rocketseat/unform";
@@ -7,43 +7,38 @@ import { Form, Input } from "@rocketseat/unform";
 import { Container, Content} from './styles';
 import Button from '../../Components/Button';
 
-import { useAuth } from '../../Context/AuthContext';
+import api from '../../Services/api';
+
 
 const SignIn = () => {
-  const formRef = useRef(null);
-
-  const {user, signIn} = useAuth();
   const history = useHistory();
 
+  const handleSubmit = useCallback(async ({username, identifier, password} ) => {
+    api.post('/users', {
+      username,
+      identifier,
+      password
+    })
+      .then(() => {
+        toast.success("Cadastro realizado com sucesso!");
+        history.push('/login');
+      })
+      .catch(() => {
+        toast.error("Erro ao realizar Cadastro, verifique se as informações estão corretas!")
+      })
 
-  console.log(user);
-  const handleSubmit = useCallback(async (data) => {
-    try {
-      formRef.current?.setErrors({});
+  }, [history]);
 
-      await signIn({
-        id: data.id,
-        email: data.email,
-        password: data.password,
-      });
-      history.push("/dashboard");
-      toast.success("Login realizado com sucesso!");
-
-    } catch (err) {
-      toast.error("Erro ao realizar cadastro, esta funcionalidade esta indisponível no momento!")
-    }
-
-  }, [history, signIn]);
 
   return (
     <Container>
       <Content>
         <Form onSubmit={handleSubmit}>
           <img src="https://bravosul.com.br/logo-bravosul.svg" alt="Logo Bravosul"/>
-          <Input name="name" placeholder="Name"/>
-          <Input name="email" placeholder="Email"/>
-          <Input name="password" placeholder="Password" type="password"/>
-          <Button type="submit">Entrar</Button>
+          <Input name="username" placeholder="Username"/>
+          <Input name="identifier" placeholder="Email"/>
+          <Input name="" placeholder="Password" type="password"/>
+          <Button type="submit">SignIn</Button>
         </Form>
         <Link to="/login">Já tenho uma conta?</Link>
       </Content>
