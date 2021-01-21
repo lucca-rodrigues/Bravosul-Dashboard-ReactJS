@@ -46,8 +46,6 @@
   },
   "devDependencies": {
     "enzyme": "3.10.0",
-    "enzyme-adapter-react-16": "16.0.0.0",
-    "enzyme-to-json": "3.3.5",
     "cross-env": "5.2.0",
     "dotenv": "5.0.1",
     "dotenv-expand": "4.2.0"
