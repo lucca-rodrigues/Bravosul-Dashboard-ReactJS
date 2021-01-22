@@ -21,7 +21,7 @@ Mas vamos lá, vou te mostrar como funciona o meu passo a passo!
 
 # Observação
 Se você preferir pular as instruções de instalação e quiser acompanhar a minha versão beta online, fique a vontate para acessar aqui:
-https://bravosul-custom-dashboard.netlify.app/
+http://development.nodejs202.uni5.net/
 
 # Instruções:
 
@@ -43,7 +43,7 @@ yarn install ou npm install
 ```
 
 Depois que tiver instalado todas as dependências basta rodar
-```sh 
+```sh
 yarn start ou npm start
 ```
 
@@ -51,19 +51,16 @@ logo uma página será aberta em seu navegador com a url: http://localhost:3000 
 
 Pronto agora eu ja estou te vendo! 🙂😉
 
-Como você é novo aqui eu vou te explicar, eu funciono com autenticação de usuário com uma API da Bravosul.
+Como você é novo aqui eu vou te explicar, eu funciono com autenticação de usuário com uma criada em Node e Adonis.
 
-Você deve estar vendo uma listagem de produtos né?
+Se você quiser ver minha api, pode acessar aqui: https://github.com/lucca-rodrigues/Bravosul-Dashboard-api
+
+Neste momento, você deve estar vendo uma listagem de produtos né?
 Essa listagem é de todos os produtos cadastrados e ativos dentro da plataforma, mas como você precisa acessar o painel vamos lá:
 
-No canto superior direito, tem um botão com um link para "Área de membros", basta clicar neste botão e acessar o login com os seguintes dados:
+No canto superior direito, tem um botão com um link para "Área de membros", basta clicar neste botão e acessar o login ou criar um usuário em alguns segundos.
 
-```sh
-{
-  "email": "dev@bravosul.com.br",
-  "password": "Brvsl@2020"
-}
-```
+
 Clique em entrar e você ja deverá estar visualizando uma tela assim:
 
 <img src="./src/Assets/dashboard.jpeg" alt="Dashboard" height="350">
