@@ -37,7 +37,7 @@ const SignIn = () => {
           <img src="https://bravosul.com.br/logo-bravosul.svg" alt="Logo Bravosul"/>
           <Input name="username" placeholder="Username"/>
           <Input name="identifier" placeholder="Email"/>
-          <Input name="" placeholder="Password" type="password"/>
+          <Input name="password" placeholder="Password" type="password"/>
           <Button type="submit">SignIn</Button>
         </Form>
         <Link to="/login">Já tenho uma conta?</Link>
