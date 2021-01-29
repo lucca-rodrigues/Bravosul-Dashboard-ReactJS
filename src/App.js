@@ -6,8 +6,8 @@ import './global.css';
 import {AuthProvider} from './Context/AuthContext';
 import { BrowserRouter } from 'react-router-dom';
 import { ToastContainer} from 'react-toastify';
-
 import Routes from './Routes'
+
 const App = () => {
   return (
     <BrowserRouter>

@@ -15,7 +15,7 @@ const AuthProvider = ({ children }) => {
       const email = localStorage.getItem('@BravosulDashboard:identifier');
       const id = localStorage.getItem('@BravosulDashboard:id');
 
-      if (token & email) {
+      if (token) {
         api.defaults.headers.authorization = `Bearer ${token}`;
 
         return { token, email: JSON.parse(email), id: id };
@@ -56,7 +56,9 @@ const AuthProvider = ({ children }) => {
       const username = response.data && response.data.user[0].username;
 
       localStorage.setItem('@BravosulDashboard:token', token);
-      localStorage.setItem('@BravosulDashboard:user', JSON.stringify({id, username, identifier}));
+      localStorage.setItem('@BravosulDashboard:user', JSON.stringify({ username, identifier }));
+      localStorage.setItem('@BravosulDashboard:id', JSON.stringify(id));
+
 
       api.defaults.headers.authorization = `Bearer ${token}`;
 
