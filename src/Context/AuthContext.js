@@ -37,6 +37,7 @@ const AuthProvider = ({ children }) => {
     );
 
     const signOut = useCallback(() => {
+      localStorage.removeItem('@BravosulDashboard:id');
       localStorage.removeItem('@BravosulDashboard:token');
       localStorage.removeItem('@BravosulDashboard:user');
 
@@ -50,12 +51,12 @@ const AuthProvider = ({ children }) => {
       });
 
       const token = response.data && response.data.token.token;
-      const id = response.data.user.id;
-      const identifier = response.data && response.data.user.email;
-      const username = response.data && response.data.user.username;
+      const id = response.data.user[0].id;
+      const identifier = response.data && response.data.user[0].email;
+      const username = response.data && response.data.user[0].username;
 
       localStorage.setItem('@BravosulDashboard:token', token);
-      localStorage.setItem('@BravosulDashboard:user', JSON.stringify({id, username, email}));
+      localStorage.setItem('@BravosulDashboard:user', JSON.stringify({id, username, identifier}));
 
       api.defaults.headers.authorization = `Bearer ${token}`;
 
