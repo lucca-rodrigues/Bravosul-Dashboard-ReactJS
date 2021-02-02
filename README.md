@@ -23,6 +23,13 @@ Mas vamos lá, vou te mostrar como funciona o meu passo a passo!
 Se você preferir pular as instruções de instalação e quiser acompanhar a minha versão beta online, fique a vontate para acessar aqui:
 http://development.nodejs202.uni5.net/
 
+# login
+Se não quiser criar uma conta, eu vou disponibilizar um usuário para você testar:
+{
+	"email":"demon@demo.com",
+	"password":"123456"
+}
+
 Link da API online: http://development.nodejs202.uni5.net:21007/
 
 Link API no Github: https://github.com/lucca-rodrigues/Bravosul-Dashboard-api
