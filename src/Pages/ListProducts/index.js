@@ -38,7 +38,7 @@ const ListProducts = () => {
                     <Card>
                       <Card.Img variant="top" src={Placeholder} />
                       <Card.Body>
-                        <Card.Title>{item.name}</Card.Title>
+                        <Card.Title>{item.title}</Card.Title>
                         <Card.Text>
                           {item.description}
                         </Card.Text>

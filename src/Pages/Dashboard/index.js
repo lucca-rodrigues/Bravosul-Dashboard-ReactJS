@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
-import { useAuth } from "../../Context/AuthContext";
 
 import { toast } from 'react-toastify';
 import { Link } from 'react-router-dom';
@@ -14,7 +13,6 @@ import api from '../../Services/api';
 
 const Dashboard = () => {
   const history = useHistory();
-  const { id } = useAuth();
   const [products, setProducts] = useState([]);
   const [open, setOpen] = useState(false);
   const [reloadingProducts, setReloadingProducts] = useState(false);
@@ -23,9 +21,9 @@ const Dashboard = () => {
 
   useEffect(() => {
     const handleProducts = () => {
-      api.get(`/products/user/${id}`)
+      api.get(`/products/user`)
         .then((response) => {
-          setProducts(response.data.products);
+          setProducts(response.data);
         })
         .catch(() => {
           toast.error("Falha ao consultar produtos, tente novamente mais tarde!");
@@ -35,7 +33,7 @@ const Dashboard = () => {
     handleProducts();
 
 
-  }, [history, reloadingProducts, id]);
+  }, [history, reloadingProducts]);
 
 
   const handleRemoveItem = (id) => {
@@ -75,7 +73,7 @@ const Dashboard = () => {
                 </tr>
               </thead>
               <tbody>
-                {products.length >= 1 ? products.map(({ id, title, description, enabled }) => (
+                {products && products.length >= 1 ? products.map(({ id, title, description, enabled }) => (
                   <>
                     {enabled === 1 ? (
                       <tr key={id}>
@@ -120,7 +118,7 @@ const Dashboard = () => {
                 </tr>
               </thead>
               <tbody>
-                {products.length >= 1 ? products.map(({ id, title, description, enabled }) => (
+                {products && products.length >= 1 ? products.map(({ id, title, description, enabled }) => (
                   <>
                     {enabled === 0 ? (
                       <tr key={id}>
