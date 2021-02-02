@@ -73,8 +73,6 @@ Esta é a listagem de Produtos que você tem, existe uma separação de produtos
 
 Nesta tela você pode ver os produtos, visualizar os detalhes dele, editar e remover. Basta clicar nos ícones respectivos que as ações serão executadas.
 
-Obs: A MINHA API PODE FICAR INSTÁVEL AS VEZES, SE OCORRER ALGUM ERRO DE TOKEN VOCÊ PRECISA FAZER UM LOGGOUT DO SISTEMA E ENTRAR NOVAMENTE
-
 Como eu sou uma versão incial, pode ser que ocorra alguns bugs mas por favor tenha paciência comigo pois estou tentando melhorar 😅😄.
 
 
