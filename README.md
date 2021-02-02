@@ -26,7 +26,7 @@ http://development.nodejs202.uni5.net/
 # login
 Se não quiser criar uma conta, eu vou disponibilizar um usuário para você testar:
 {
-	"email":"demon@demo.com",
+	"email":"demo@demo.com",
 	"password":"123456"
 }
 
